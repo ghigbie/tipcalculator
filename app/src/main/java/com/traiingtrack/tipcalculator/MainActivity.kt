@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import org.w3c.dom.Text
+import android.widget.Toast
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,17 +19,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        calculateTip
     }
 
-    fun calculateTip():Double{
-        if(billAmount && tipAmount) {
-            var tip: Double? = null
+    fun calculateTip() {
+        var tip: Double? = null
+
+        if(billAmount != null && tipAmount != null) {
             var bill: Double = billAmount.text.toString().toDouble()
             var tipPercent: Double = tipAmount.text.toString().toDouble()
-            tip
-        }else
+            tip = (bill * tipPercent)/100
+        }else{
+            val toast = Toast.makeText(applicationContext, "Please complete the fields before calculating the tip.", Toast.LENGTH_SHORT)
+            toast.show()
+        }
 
-        return tip
+        resultTip.text = tip.toString()
     }
 }
