@@ -10,21 +10,21 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
-    var billAmount: EditText = findViewById(R.id.editBillAmount)
-    var tipAmount: EditText = findViewById(R.id.editTipPercent)
-    var resultTip: TextView = findViewById(R.id.resultTip)
-    val calculateTipButton: Button = findViewById(R.id.calculateTipButton)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val billAmount: EditText = findViewById(R.id.editBillAmount)
+        val tipAmount: EditText = findViewById(R.id.editTipPercent)
+        val resultTip: TextView = findViewById(R.id.resultTip)
+        val calculateTipButton: Button = findViewById(R.id.calculateTipButton)
+
         calculateTipButton.setOnClickListener{
-            calculateTip()
+            calculateTip(billAmount, tipAmount, resultTip)
         }
     }
 
-    private fun calculateTip() {
+    private fun calculateTip(billAmount: EditText, tipAmount: EditText, resultTip: TextView) {
         var tip: Double? = null
 
         if(billAmount != null && tipAmount != null) {
