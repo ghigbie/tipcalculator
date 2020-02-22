@@ -13,16 +13,18 @@ class MainActivity : AppCompatActivity() {
     var billAmount: EditText = findViewById(R.id.editBillAmount)
     var tipAmount: EditText = findViewById(R.id.editTipPercent)
     var resultTip: TextView = findViewById(R.id.resultTip)
-    val calculateTip: Button = findViewById(R.id.calculateTipButton)
+    val calculateTipButton: Button = findViewById(R.id.calculateTipButton)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        calculateTip
+        calculateTipButton.setOnClickListener{
+            calculateTip()
+        }
     }
 
-    fun calculateTip() {
+    private fun calculateTip() {
         var tip: Double? = null
 
         if(billAmount != null && tipAmount != null) {
@@ -33,7 +35,6 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, "Please complete the fields before calculating the tip.", Toast.LENGTH_SHORT)
             toast.show()
         }
-
         resultTip.text = tip.toString()
     }
 }
