@@ -6,8 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import java.text.DecimalFormat
-import java.text.NumberFormat
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         val tipAmount: EditText = findViewById(R.id.editTipPercent)
         val resultTip: TextView = findViewById(R.id.resultTip)
         val calculateTipButton: Button = findViewById(R.id.calculateTipButton)
-
 
         calculateTipButton.setOnClickListener{
             calculateTip(billAmount, tipAmount, resultTip)
@@ -38,6 +35,6 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, "Please complete the fields before calculating the tip.", Toast.LENGTH_SHORT)
             toast.show()
         }
-        resultTip.text = tip.toString()
+        resultTip.text = "$${tip.toString()}"
     }
 }
