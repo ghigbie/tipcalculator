@@ -18,14 +18,15 @@ class MainActivity : AppCompatActivity() {
         val billAmount: EditText = findViewById(R.id.editBillAmount)
         val tipAmount: EditText = findViewById(R.id.editTipPercent)
         val resultTip: TextView = findViewById(R.id.resultTip)
+        val resultTotal: TextView = findViewById(R.id.resultTotal)
         val calculateTipButton: Button = findViewById(R.id.calculateTipButton)
 
         calculateTipButton.setOnClickListener{
-            calculateTip(billAmount, tipAmount, resultTip)
+            calculateTip(billAmount, tipAmount, resultTip, resultTotal)
         }
     }
 
-    private fun calculateTip(billAmount: EditText, tipAmount: EditText, resultTip: TextView) {
+    private fun calculateTip(billAmount: EditText, tipAmount: EditText, resultTip: TextView, resultTotal: TextView) {
         var tip: Double? = null
         var total: Double? = null
 
@@ -39,7 +40,8 @@ class MainActivity : AppCompatActivity() {
             toast.show()
         }
         var format: NumberFormat = NumberFormat.getInstance()
-        resultTip.text = "Tip: $${format.format(tip)} | Total: $${format.format(total)}"
+        resultTip.text = "Tip: $${format.format(tip)}"
+        resultTotal.text = "Total: $${format.format(total)}"
     }
 
 }
