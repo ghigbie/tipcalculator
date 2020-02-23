@@ -39,9 +39,8 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, "Please complete the fields before calculating the tip.", Toast.LENGTH_SHORT)
             toast.show()
         }
-        var format: NumberFormat = NumberFormat.getInstance()
-        resultTip.text = "Tip: $${format.format(tip)}"
-        resultTotal.text = "Total: $${format.format(total)}"
+        resultTip.text = "Tip: $${String.format("%.2f", tip)}"
+        resultTotal.text = "Total: $${String.format("%.2f",total)}"
     }
 
 }
