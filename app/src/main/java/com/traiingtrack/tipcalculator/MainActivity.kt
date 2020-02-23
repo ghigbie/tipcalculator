@@ -1,12 +1,12 @@
 package com.traiingtrack.tipcalculator
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import java.text.NumberFormat
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun calculateTip(billAmount: EditText, tipAmount: EditText, resultTip: TextView, resultTotal: TextView) {
         var tip: Double? = null
         var total: Double? = null
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, "Please complete the fields before calculating the tip.", Toast.LENGTH_SHORT)
             toast.show()
         }
-        resultTip.text = "Tip: $${String.format("%.2f", tip)}"
+        resultTip.text = "Tip: ${String.format("%.2f", tip)}"
         resultTotal.text = "Total: $${String.format("%.2f",total)}"
     }
 
