@@ -75,6 +75,22 @@
         app:layout_constraintTop_toBottomOf="@+id/editTipPercent"
         tools:text="$35.87" />
 
+    <TextView
+        android:id="@+id/resultTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultTip"
+        tools:text="$35.87" />
+
     <Button
         android:id="@+id/calculateTipButton"
         android:layout_width="wrap_content"
@@ -86,7 +102,6 @@
         android:text="Calculate Tip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultTip" />
-
+        app:layout_constraintTop_toBottomOf="@+id/resultTotal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

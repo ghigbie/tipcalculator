@@ -20,8 +20,6 @@ class MainActivity : AppCompatActivity() {
         val resultTip: TextView = findViewById(R.id.resultTip)
         val calculateTipButton: Button = findViewById(R.id.calculateTipButton)
 
-        setDollarText(billAmount)
-
         calculateTipButton.setOnClickListener{
             calculateTip(billAmount, tipAmount, resultTip)
         }
@@ -34,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         if(billAmount != null && tipAmount != null) {
             val bill: Double = billAmount.text.toString().toDouble()
             val tipPercent: Double = tipAmount.text.toString().toDouble()
-            var tip: Double = (bill * tipPercent)/100
-            var total: Double = tip + bill
+            tip = (bill * tipPercent)/100
+            total = tip + bill
         }else{
             val toast = Toast.makeText(applicationContext, "Please complete the fields before calculating the tip.", Toast.LENGTH_SHORT)
             toast.show()
@@ -44,7 +42,4 @@ class MainActivity : AppCompatActivity() {
         resultTip.text = "Tip: $${format.format(tip)} | Total: $${format.format(total)}"
     }
 
-    private fun setDollarText(dollarAmount: EditText?){
-        dollarAmount?.setText("$${dollarAmount}")
-    }
 }
