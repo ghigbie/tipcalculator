@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import java.text.NumberFormat
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(applicationContext, "Please complete the fields before calculating the tip.", Toast.LENGTH_SHORT)
             toast.show()
         }
-        resultTip.text = "$${tip.toString()}"
+        resultTip.text = "$${NumberFormat.getInstance().format(tip)}"
+    }
+
+    private fun setDollarText(dollarAmount: EditText){
     }
 }
